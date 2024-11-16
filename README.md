@@ -1,21 +1,9 @@
 # Html2react
 
-**TODO: Add description**
+## Description
+- Takes in a absolute path to a .html file and outputs the respective .jsx equivalence
+- Due to the nature... any tags outside body other that html are not supported for now.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `html2react` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:html2react, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/html2react>.
-
+## Running 🏃🏃
+- `mix deps.get`
+- `mix parse <PATH-TO-HTML-FILE>`
