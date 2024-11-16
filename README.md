@@ -6,7 +6,5 @@
 
 ## Running 🏃🏃
 - `mix deps.get`
-- `mix parse <PATH-TO-HTML-FILE>`
-
-## Testing
 - `mix test`
+- `mix parse <PATH-TO-HTML-FILE>`
