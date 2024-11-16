@@ -3,6 +3,7 @@ defmodule Html2react do
   Documentation for `Html2react`.
   """
 
+  @spec parse([binary() | {any(), any(), list()}]) :: binary()
   @doc """
   Parse HTML to React.
 
@@ -12,14 +13,20 @@ defmodule Html2react do
       "<div className='test'>Hello</div>"
 
   """
-  def parse(html), do: get_tags(html)
+  def parse(html) do
+    {:ok, html} =
+      html
+      |> Floki.parse_document()
+
+    html |> get_tags()
+  end
 
   defp get_tags([{"html" = tag, attributes, children}]) do
-    "<#{tag} #{get_attributes(attributes)}> #{get_tags(children)} </#{tag}>"
+    ~s(<#{tag} #{get_attributes(attributes)}>#{get_tags(children)}</#{tag}>)
   end
 
   defp get_tags([{tag, attributes, children} | rest]) do
-    "<#{tag} #{get_attributes(attributes)}> #{get_tags(children ++ rest)} </#{tag}>"
+    ~s(<#{tag} #{get_attributes(attributes)}>#{get_tags(children ++ rest)}</#{tag}>)
   end
 
   defp get_tags([text | rest]), do: text <> get_tags(rest)
@@ -28,7 +35,7 @@ defmodule Html2react do
   defp get_attributes(list) do
     list
     |> Enum.reduce("", fn {k, v}, a ->
-      "#{a} #{convert_attribute_key(k)}=#{<<34>>}#{v}#{<<34>>} "
+      ~s(#{a}#{convert_attribute_key(k)}=#{"'"}#{v}#{"'"})
     end)
   end
 

@@ -2,7 +2,8 @@ defmodule Html2reactTest do
   use ExUnit.Case
   doctest Html2react
 
-  test "greets the world" do
-    assert Html2react.hello() == :world
+  test "correctly parses html to react" do
+    assert Html2react.parse("<div class='test'>Hello</div>") ==
+             "<div className='test'>Hello</div>"
   end
 end
