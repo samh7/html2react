@@ -13,7 +13,6 @@ defmodule Html2react do
 
   """
 
-  @spec parse([binary() | {any(), any(), list()}]) :: binary()
   def parse(html) do
     {:ok, html} =
       html
