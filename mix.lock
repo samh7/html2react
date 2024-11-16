@@ -1,0 +1,3 @@
+%{
+  "floki": {:hex, :floki, "0.34.3", "5e2dcaec5d7c228ce5b1d3501502e308b2d79eb655e4191751a1fe491c37feac", [:mix], [], "hexpm", "9577440eea5b97924b4bf3c7ea55f7b8b6dce589f9b28b096cc294a8dc342341"},
+}
