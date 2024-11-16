@@ -3,7 +3,6 @@ defmodule Html2react do
   Documentation for `Html2react`.
   """
 
-  @spec parse([binary() | {any(), any(), list()}]) :: binary()
   @doc """
   Parse HTML to React.
 
@@ -13,6 +12,8 @@ defmodule Html2react do
       "<div className='test'>Hello</div>"
 
   """
+
+  @spec parse([binary() | {any(), any(), list()}]) :: binary()
   def parse(html) do
     {:ok, html} =
       html
